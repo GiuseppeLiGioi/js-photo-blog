@@ -8,7 +8,17 @@ main{
 #big-text{
     font-family: 'Edu Tas Beginner', sans-serif;
 }
+#red_pin{
+    width: 50px;
+    height: 30px;
 
+    position: absolute;
+    top: -7px;
+    left: 45%;
+}
 .card_text{
     font-family: 'Sometype Mono', sans-serif;
+}
+.card{
+    position: relative;
 }
