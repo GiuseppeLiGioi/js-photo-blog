@@ -26,7 +26,7 @@ let container = document.getElementById('container');
             container.innerHTML += 
 
         `
-        <div class="col-4">
+        <div class="col-lg-4 col-md-6  col-s-12">
            <div class="card p-3 mt-3 mb-3">
                 <img id="red_pin" src="./img/pin.svg" alt="pin">
                 <img src=${element.url} alt=${element.title}>
