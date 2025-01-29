@@ -1,0 +1,14 @@
+header{
+background-image: url(./img/wall.png);
+}
+
+main{
+    background-image: url(./img/cork.png);
+}
+#big-text{
+    font-family: 'Edu Tas Beginner', sans-serif;
+}
+
+.card_text{
+    font-family: 'Sometype Mono', sans-serif;
+}
