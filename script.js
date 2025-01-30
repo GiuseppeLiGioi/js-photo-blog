@@ -44,38 +44,63 @@ Buon Lavoro
 
 
 let container = document.getElementById('container');
-
+let overlay = document.getElementById("overlay");
+let bottone = document.getElementById("btn"); 
 
 fetch("https://lanciweb.github.io/demo/api/pictures/")
     .then(response => response.json())
     .then(data => {
-        //console.log(data)
+
         data.forEach(element => {
-            container.innerHTML +=
+            const { date, id, title, url } = element;
+            container.innerHTML += `
+                <div class="col-lg-4 col-md-6 col-s-12 cards">
+                    <div class="card p-3 mt-3 mb-3">
+                        <img id="red_pin" src="./img/pin.svg" alt="pin">
+                        <img class="card-image" src="${url}" alt="${title}">
+                        <div class="card-body">
+                            <h5 class="card_text">${title}</h5>
+                            <p class="card_text">${date}</p>
+                        </div>
+                    </div>
+                </div>   
+            `;
+        });
 
-                `
-        <div class="col-lg-4 col-md-6  col-s-12">
-           <div class="card p-3 mt-3 mb-3">
-                <img id="red_pin" src="./img/pin.svg" alt="pin">
-                <img src=${element.url} alt=${element.title}>
-                <div class="card-body">
-                    <h5 class="card_text">${element.title}</h5>
-                    <p class="card_text">${element.date}</p>
-                </div>
-            </div>
-         </div>   
-        `
+        
+        const cardImages = document.querySelectorAll('.card-image');
 
+        cardImages.forEach(image => {
+            image.addEventListener('click', function() {
+                const imgSrc = image.src;  
+                console.log("Immagine cliccata", imgSrc);
+
+                
+                overlay.innerHTML = `
+                    <button id="btn" class="mb-3" type="submit">Chiudi</button>
+                    <img id="img" src="${imgSrc}" alt="foto">
+                `;
+
+                
+                overlay.classList.remove('d-none');
+
+                
+                bottone = document.getElementById('btn'); 
+                bottone.addEventListener('click', function() {
+                    
+                   
+                overlay.classList.add('d-none');
+                });
+            });
         });
 
     })
-
-
-
-
-
     .catch(error => {
         console.error(error);
-    })
+    });
+
+
+
+
 
 
