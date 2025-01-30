@@ -45,7 +45,7 @@ Buon Lavoro
 
 let container = document.getElementById('container');
 let overlay = document.getElementById("overlay");
-let bottone = document.getElementById("btn"); 
+
 
 fetch("https://lanciweb.github.io/demo/api/pictures/")
     .then(response => response.json())
@@ -85,7 +85,7 @@ fetch("https://lanciweb.github.io/demo/api/pictures/")
                 overlay.classList.remove('d-none');
 
                 
-                bottone = document.getElementById('btn'); 
+                let bottone = document.getElementById('btn'); 
                 bottone.addEventListener('click', function() {
                     
                    
