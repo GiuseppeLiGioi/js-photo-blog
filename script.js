@@ -18,14 +18,14 @@ Inseriamo un foglio JavaScript ed effettuiamo una chiamata AJAX all’API, sfrut
 let container = document.getElementById('container');
 
 
-    fetch("https://lanciweb.github.io/demo/api/pictures/")
+fetch("https://lanciweb.github.io/demo/api/pictures/")
     .then(response => response.json())
-    .then (data=>{
+    .then(data => {
         //console.log(data)
         data.forEach(element => {
-            container.innerHTML += 
+            container.innerHTML +=
 
-        `
+                `
         <div class="col-lg-4 col-md-6  col-s-12">
            <div class="card p-3 mt-3 mb-3">
                 <img id="red_pin" src="./img/pin.svg" alt="pin">
@@ -37,17 +37,17 @@ let container = document.getElementById('container');
             </div>
          </div>   
         `
-        
-    });
 
-})
-  
-    
+        });
+
+    })
 
 
 
-    .catch(error=>{
-    console.error(error);
+
+
+    .catch(error => {
+        console.error(error);
     })
 
 
