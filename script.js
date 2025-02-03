@@ -47,12 +47,15 @@ let container = document.getElementById('container');
 let overlay = document.getElementById("overlay");
 
 
+// Effettua una richiesta fetch per ottenere i dati delle immagini da un'API
 fetch("https://lanciweb.github.io/demo/api/pictures/")
     .then(response => response.json())
     .then(data => {
 
         data.forEach(element => {
+            //destruct
             const { date, id, title, url } = element;
+             // Aggiunge in maniera dinamica, una card HTML nel container per ogni immagine
             container.innerHTML += `
                 <div class="col-lg-4 col-md-6 col-s-12 cards">
                     <div class="card p-3 mt-3 mb-3">
@@ -72,23 +75,24 @@ fetch("https://lanciweb.github.io/demo/api/pictures/")
 
         cardImages.forEach(image => {
             image.addEventListener('click', function() {
+                 // Ottengo il percorso dell'immagine cliccata
                 const imgSrc = image.src;  
                 console.log("Immagine cliccata", imgSrc);
 
-                
+                // Inserisco l'immagine cliccata nell'overlay e un pulsante per chiuderlo
                 overlay.innerHTML = `
                     <button id="btn" class="mb-3" type="submit">Chiudi</button>
                     <img id="img" src="${imgSrc}" alt="foto">
                 `;
 
-                
+                  // Rimuovo la classe d-none per rendere visibile l'overlay
                 overlay.classList.remove('d-none');
 
-                
+                // Aggiungo un event listener al bottone per chiudere l'overlay
                 let bottone = document.getElementById('btn'); 
                 bottone.addEventListener('click', function() {
                     
-                   
+                 
                 overlay.classList.add('d-none');
                 });
             });
